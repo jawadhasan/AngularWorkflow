@@ -1,0 +1,26 @@
+dotnet watch run
+ <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+
+ng serve --proxy-config proxy.config.json
+
+//------------------------Install Bootstrap
+npm install jquery --save
+npm install popper.js --save
+npm install bootstrap --save
+
+--Then reference those in styles and scripts section of angular.json
+//-----------------------------------------------
+
+ng g module Company -m app.module
+
+ng g component Company  --spec=false
+ng g component company/companies-grid --flat
+
+ng generate interface ICompany
+
+//-------------------------------------------
+//Install Angular Material
+ng add @angular/material
+
+//Create a new module specific to angular-material
+ng g m material

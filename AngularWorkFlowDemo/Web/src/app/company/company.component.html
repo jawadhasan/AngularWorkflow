@@ -1,0 +1,27 @@
+<div class="container">
+
+
+<mat-toolbar>
+  <span>{{pageTitle}}</span>
+</mat-toolbar>
+
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="navbar">
+        Filter: <input type="text" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <a class="btn btn-default" [routerLink]="['/companies','0']">Add New Company</a>
+    </div>
+  </div>
+
+
+  <app-companies-grid [companies]="companies"></app-companies-grid>
+
+  <!--<div *ngIf="company.isActive">
+    <td>{{company.name}}</td>
+    <td><button class="btn btn-success" (click)="onClickHandler(company)">View</button></td>
+  </div>-->
+</div>

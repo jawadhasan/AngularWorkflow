@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Ensure display:flex and others don't override a [hidden] */
+[hidden] { display: none !important; }
+
+
+th {
+  cursor: pointer;
+}
+
+.navbar-header {
+  width: 300px;
+}
+
+.nav.navbar-padding {
+  margin-left:25px;
+  margin-top: 10px;
+}
+
+.app-title {
+  line-height:50px;
+  font-size:20px;
+  color: white;
+}
+
+
+app-company-edit form {
+  width:50%;
+}
+.editForm .ng-invalid {
+  border-left: 5px solid #a94442;
+}
+.editForm .ng-valid {
+  border-left: 5px solid #42A948;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+
+/* Materials Style */
+.controls-container{
+  width:100%;
+  padding: 5%;
+}
+
+.controls-container > * {
+  width:100%;
+}
+.add-bottom-padding{
+  /* padding-bottom: 10px; */
+}
+mat-radion-group mat-radio-button{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.button-row button{
+  margin:5px;
+}
+
+.fill-remaining-space{
+  flex: 1 1 auto;
+}
+.btn-dialog-close{
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
+}

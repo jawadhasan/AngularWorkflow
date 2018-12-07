@@ -1,0 +1,4 @@
+<div class="menu-item" (click)="onClick($event)" [ngClass]="{'router-link-active': isActiveRoute }">
+  <span class="glyphicon {{item.icon}}"></span>
+  <span>{{item.text.toUpperCase()}}</span>
+</div>
