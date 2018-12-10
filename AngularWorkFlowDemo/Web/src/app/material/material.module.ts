@@ -17,7 +17,10 @@ import * as Material from '@angular/material';
     Material.MatNativeDateModule,
     Material.MatButtonModule,
     Material.MatIconModule,
-    Material.MatDialogModule
+    Material.MatDialogModule,
+
+    Material.MatCardModule,
+    Material.MatProgressSpinnerModule
   ],
   exports: [
     Material.MatToolbarModule,
@@ -32,7 +35,10 @@ import * as Material from '@angular/material';
     Material.MatButtonModule,
     Material.MatIconModule,
 
-    Material.MatDialogModule
+    Material.MatDialogModule,
+
+    Material.MatCardModule,
+    Material.MatProgressSpinnerModule
 
 
 

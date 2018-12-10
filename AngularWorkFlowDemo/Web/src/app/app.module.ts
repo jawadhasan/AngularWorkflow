@@ -39,6 +39,16 @@ import { CompanyEditComponent } from './company/company-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountComponent } from './accounts/account/account.component';
 
+import { MultiStepComponent } from './multi-step/multi-step.component';
+import { PersonalComponent } from './register/personal/personal.component';
+import { WorkComponent } from './register/work/work.component';
+import { AddressComponent } from './register/address/address.component';
+import { ResultComponent } from './register/result/result.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormDataService } from './data/formData.service';
+import { WorkflowService } from './workflow/workflow.service';
+import { WorkflowGuard } from './workflow/workflow-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +69,12 @@ import { AccountComponent } from './accounts/account/account.component';
     CapitalizePipe,
     CompanyEditComponent,
     AccountComponent,
+    MultiStepComponent,
+    PersonalComponent,
+    WorkComponent,
+    AddressComponent,
+    ResultComponent,
+    NavbarComponent,
 
   ],
   imports: [
@@ -73,7 +89,11 @@ import { AccountComponent } from './accounts/account/account.component';
   providers: [
     JsRouter,
     UserService,
-    CompanyService
+    CompanyService,
+    WorkflowGuard,
+    FormDataService,
+    WorkflowService,
+
     ],
   bootstrap: [AppComponent],
   entryComponents: [AccountComponent]

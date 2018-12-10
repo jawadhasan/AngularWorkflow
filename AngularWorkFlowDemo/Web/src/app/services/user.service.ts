@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable, empty, of, from } from 'rxjs';
+import { Observable, empty, of, from, observable, throwError  } from 'rxjs';
 import { UserApi } from './user-api';
+import { delay, flatMap } from 'rxjs/operators';
 
 @Injectable()
 export class UserService implements UserApi {
@@ -12,16 +13,18 @@ export class UserService implements UserApi {
   signIn(username: string, password: string, rememberMe: boolean): Observable<any> {
     console.log('UserService.signIn: ' + username + ' ' + password + ' ' + rememberMe);
     this.isAuthenticated = true;
-    return from<string>(['']);
-    // return Observable.of({}).delay(2000).flatMap(x=>Observable.throw('Invalid User Name and/or Password'));
+    if(username === 'y2k'){
+       return from<string>(['']).pipe(delay(1000));
+    }else{
+      return of({}).pipe(delay(2000)).pipe(flatMap(x=> throwError('Invalid User Name and/or Password')));
+      // return Observable.of({}).delay(2000).flatMap(x=>Observable.throw('Invalid User Name and/or Password'));
+    } 
   }
 
   signOut(): Observable<any> {
     this.isAuthenticated = false;
     this.router.navigate(['/signin']);
     return from<string>(['']);
-
-      //return Observable.of({});
+    //return Observable.of({});
   }
-
 }

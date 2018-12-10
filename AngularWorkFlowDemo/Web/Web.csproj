@@ -11,6 +11,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="src\app\app.routing.ts" />
+    <None Remove="src\app\data\formData.model.ts" />
+    <None Remove="src\app\data\formData.service.ts" />
+    <None Remove="src\app\workflow\workflow.model.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".editorconfig" />
@@ -58,5 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app.routing.ts" />
+    <TypeScriptCompile Include="src\app\data\formData.model.ts" />
+    <TypeScriptCompile Include="src\app\data\formData.service.ts" />
+    <TypeScriptCompile Include="src\app\workflow\workflow.model.ts" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,10 @@
+
+<ng-container>
+    <ng-container *ngTemplateOutlet="matLogin"></ng-container>
+</ng-container>
+<ng-template #simpleLogin>
 <div class="sign-in-form">
-  <!--<img src="./assets/logo.png" width="320" />-->
+  <!-- <img src="./assets/logo.png" width="320" /> -->
   <h4>Sign In</h4>
   <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
     <div class="form-group">
@@ -23,7 +28,7 @@
       {{ formError }}
     </div>
     <div *ngIf="!submitting">
-      <a routerLink="/register">Register</a>
+      <a routerLink="/register/personal">Register</a>
       <button type="submit" class="btn btn-primary"[disabled]="!signInForm.valid">Sign In</button>
     </div>
     <div *ngIf="submitting">
@@ -31,3 +36,56 @@
     </div>
   </form>
 </div>
+</ng-template>
+
+<ng-template #matLogin>
+
+    <mat-card class="loginBox">
+
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <form #signInForm="ngForm">
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                  <mat-error>This field is required.</mat-error>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+              <td><mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+                <mat-error>This field is required.</mat-error>
+              </mat-form-field></td>
+            </tr></table>
+          </form>
+
+          <div class="center-align">
+              <mat-spinner [style.display]="submitting ? 'block' : 'none'">                
+              </mat-spinner>
+          </div>
+         
+        </mat-card-content>
+
+        <mat-card-actions>           
+          <a mat-button routerLink="/register/personal">Register</a>
+          <button mat-raised-button (click)="onSubmit(signInForm)" color="primary" [disabled]="!signInForm.valid">Login</button>            
+        </mat-card-actions>
+
+        <mat-card-footer>
+          <div class="center-align">
+              <mat-error *ngIf="formError">{{ formError }}</mat-error>
+          </div>            
+        </mat-card-footer>
+
+      </mat-card>
+</ng-template>
+
+
+
+

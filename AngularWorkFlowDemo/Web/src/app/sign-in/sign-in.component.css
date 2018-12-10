@@ -26,3 +26,17 @@ button {
 .message {
     float: right;
 }
+
+
+.loginBox {
+    max-width:  90%;
+    width: 330px
+  }
+  .example-full-width{
+    width: 100%;
+  }
+
+  .center-align{
+    display: flex;  
+    justify-content: center;
+  }

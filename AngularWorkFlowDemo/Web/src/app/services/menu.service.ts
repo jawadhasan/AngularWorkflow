@@ -10,10 +10,9 @@ export interface IMenuItem {
   providedIn: 'root'
 })
 export class MenuService {
-  items: Array<IMenuItem> = [
-
+  items: Array<IMenuItem> = [   
     { text: 'Dashboard', icon: 'glyphicon-dashboard', route: '/dashboard' },
     { text: 'Companies', icon: 'glyphicon-briefcase', route: '/companies' },
     { text: 'Accounts', icon: 'glyphicon-euro', route: '/accounts' }
-  ];;
+  ];
 }
