@@ -10,16 +10,14 @@ import { FormDataService } from '../../data/formData.service';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit {
-
   title = 'Where do you live?';
   address: Address;
-  form: any;
+
 
   constructor(private router: Router, private formDataService: FormDataService) { }
 
   ngOnInit() {
     this.address = this.formDataService.getAddress();
-    console.log('Address feature loaded!');
   }
 
   save(form: any): boolean {

@@ -1,8 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
 
 import {FormData, Personal, Address} from './formData.model'
-import { WorkflowService }                   from '../workflow/workflow.service';
-import { STEPS }                             from '../workflow/workflow.model';
+import { WorkflowService }           from '../workflow/workflow.service';
+import { STEPS }                     from '../workflow/workflow.model';
 
 
 /* Service responsbile for sharing the original input data amount the PersonalComponent, WorkComponent, AddressComponent and ResultComponent.*/
@@ -10,34 +10,28 @@ import { STEPS }                             from '../workflow/workflow.model';
 @Injectable()
 export class FormDataService{
 
-    private formData: FormData = new FormData();
+    private formData: FormData = new FormData(); //should be equal to workflow steps data in long-run
     private isPersonalFormValid: boolean = false;
     private isWorkFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
 
     constructor(private workflowService: WorkflowService) { }
 
-
+    //Called from init of component.ts
     getPersonal(): Personal{
-
-        var personal: Personal = {
-            firstName: this.formData.firstName,
-            lastName: this.formData.lastName,
-            email: this.formData.email
-        };
-        return personal;
+        return new Personal(this.formData.firstName, this.formData.lastName, this.formData.email);        
     }
 
+    //Called from save of component.ts
     setPersonal(data: Personal){
         //update the Personal data only when the Personal-Form had been validated successfully
         this.isPersonalFormValid = true;
         this.formData.firstName = data.firstName;
         this.formData.lastName = data.lastName;
         this.formData.email = data.email;
-
-        //Validate Personal Step in Workflow
+       
+        this.workflowService.updateStepData(STEPS.personal, data);       
         this.workflowService.validateStep(STEPS.personal);
-
     }
 
 
@@ -50,30 +44,24 @@ export class FormDataService{
         this.isWorkFormValid = true;
         this.formData.work = data;
 
-        //Validate Work Step in Workflow
+        this.workflowService.updateStepData(STEPS.work, data);       
         this.workflowService.validateStep(STEPS.work);
     }
 
 
-    getAddress(): Address{
-        // Return the Address data
-        var address: Address = {
-            street: this.formData.street,
-            city: this.formData.city,
-            state: this.formData.state,
-            zip: this.formData.zip
-        };
-        return address;
+    getAddress(): Address{       
+         return  new Address(this.formData.street, this.formData.city, this.formData.state, this.formData.zip);        
     }
     setAddress(data: Address){
+       
         //Update the Address data only when the Address Form had been validated succesffuly
         this.isAddressFormValid = true;
         this.formData.street = data.street;
         this.formData.city = data.city;
         this.formData.state = data.state;
         this.formData.zip = data.zip;
-
-        // Validate Address Step in Workflow
+       
+        this.workflowService.updateStepData(STEPS.address, data);        
         this.workflowService.validateStep(STEPS.address);
     }
 

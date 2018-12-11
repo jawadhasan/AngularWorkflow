@@ -10,14 +10,12 @@ import { FormDataService } from '../../data/formData.service';
 })
 export class WorkComponent implements OnInit {
   title = 'What do you do?.';
-  workType: string;
-  form: any;
+  workType: string; 
 
   constructor(private router: Router, private formDataService: FormDataService) { }
 
   ngOnInit() {
-    this.workType = this.formDataService.getWork();
-    console.log('Work feature loaded!');
+    this.workType = this.formDataService.getWork();   
   }
 
   save(form: any): boolean{
