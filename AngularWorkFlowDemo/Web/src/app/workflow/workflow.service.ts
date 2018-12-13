@@ -8,10 +8,17 @@ export class WorkflowService {
 
     private workflow: IWorkflow;
 
-    setWorkflowSteps(iworkflow: IWorkflow) {
-        this.workflow = iworkflow;
+    isValid():boolean{
+        return this.workflow.isValid();
+    }
+   
+    getFirstStep():string{
+       return this.workflow.getFirstStep();
     }
 
+    setWorkflow(iworkflow: IWorkflow) {
+        this.workflow = iworkflow;
+    }
     getStep(step: string):IWorkflowStep{
         return this.workflow.steps.find(x=> x.step === step);
     }
@@ -19,7 +26,10 @@ export class WorkflowService {
     validateStep(step: string) {
         let wfStep = this.workflow.steps.find(x=> x.step === step);
         if(wfStep){
+            
             wfStep.valid = true;
+
+            console.log('validateStep: ', step);
         }
     }   
 

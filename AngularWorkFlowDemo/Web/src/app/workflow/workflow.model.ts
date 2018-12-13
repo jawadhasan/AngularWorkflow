@@ -1,4 +1,10 @@
-import {Personal, Address} from '../data/formData.model';
+import {Personal, Address, FormData} from '../data/formData.model';
+
+export const WORKFLOWS = {
+    basic: 'basic',
+    simple: 'simple',
+    registeruser: 'registeruser'
+}
 
 export const STEPS = {
   personal: 'personal',
@@ -7,10 +13,11 @@ export const STEPS = {
   result: 'result'
 }
 
-export interface IWorkflow{
+export interface IWorkflow{ 
   name: string;
   steps: Array<IWorkflowStep>;
   isValid():boolean;
+  getFirstStep():string;
 }
 
 export interface IWorkflowStep{
@@ -22,8 +29,8 @@ export interface IWorkflowStep{
 
   setData(data: any):void;
   getData():any;
-}
 
+}
 export class WorkflowStep<T> implements IWorkflowStep {
     title: string;
     data: T;
@@ -34,7 +41,7 @@ export class WorkflowStep<T> implements IWorkflowStep {
     constructor(title:string, step: string, icon:string){
         this.title = title;
         this.step = step;
-        this.icon = icon;   
+        this.icon = icon; 
     }
 
     setData(data: T){
@@ -45,6 +52,7 @@ export class WorkflowStep<T> implements IWorkflowStep {
     }
 }
 
+
 export const personalStep: IWorkflowStep = new WorkflowStep<Personal>("Please tell us about yourself.",STEPS.personal,"glyphicon glyphicon-user");
 const workStep: IWorkflowStep = new WorkflowStep<string>("What do you do?.",STEPS.work,"glyphicon glyphicon-tasks");
 const addressStep: IWorkflowStep = new WorkflowStep<Address>("Where do you live?",STEPS.address,"glyphicon glyphicon-home");
@@ -52,33 +60,35 @@ const resultStep: IWorkflowStep = new WorkflowStep<any>("Thanks for staying tune
 
 
 
-export class SimpleWorkFlow implements IWorkflow {    
-
-    name: string; 
+abstract class BaseWorkflow implements IWorkflow{   
+    name:string;
     steps: IWorkflowStep[];
-
-    constructor(){
-        this.name = "Simple Workflow";
-        this.steps = [personalStep, workStep,  resultStep]
+    
+    constructor(name: string, steps:IWorkflowStep[]){
+        this.name = name;
+        this.steps = steps;        
     }
-
-    public isValid():boolean{
-      return this.steps.every(s=> s.valid);
+    getFirstStep():string{
+        return this.steps[0].step; //being used for routing
     }
-}
-
-
-export class RegisterUserWorkFlow implements IWorkflow {
-
-    name: string; 
-    steps: IWorkflowStep[];
-
-    constructor(){
-        this.name = "Register User Workflow";
-        this.steps = [personalStep, workStep,addressStep, resultStep]
-    }
-
-    public isValid():boolean{
+    isValid():boolean{
         return this.steps.every(s=> s.valid);
-      }
+    }
 }
+
+export class BasicWorkFlow extends BaseWorkflow{  
+    constructor(){
+         super(WORKFLOWS.basic, [personalStep,resultStep]);
+    }
+}
+export class SimpleWorkFlow extends BaseWorkflow {
+    constructor(){
+        super(WORKFLOWS.simple, [personalStep, addressStep,  resultStep]);     
+    }    
+}
+export class RegisterUserWorkFlow extends BaseWorkflow {
+    constructor(){
+        super(WORKFLOWS.registeruser, [personalStep, workStep, addressStep, resultStep]);     
+    }
+}
+

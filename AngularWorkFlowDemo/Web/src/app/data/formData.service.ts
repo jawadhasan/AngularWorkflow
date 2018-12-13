@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 
-import {FormData, Personal, Address} from './formData.model'
+import { FormData, Personal, Address} from './formData.model'
 import { WorkflowService }           from '../workflow/workflow.service';
 import { STEPS }                     from '../workflow/workflow.model';
 
@@ -9,41 +9,29 @@ import { STEPS }                     from '../workflow/workflow.model';
 
 @Injectable()
 export class FormDataService{
-
-    private formData: FormData = new FormData(); //should be equal to workflow steps data in long-run
-    private isPersonalFormValid: boolean = false;
-    private isWorkFormValid: boolean = false;
-    private isAddressFormValid: boolean = false;
+     private formData: FormData = new FormData(); 
 
     constructor(private workflowService: WorkflowService) { }
 
-    //Called from init of component.ts
+    //following get/set methods are called from init() of respective components
     getPersonal(): Personal{
         return new Personal(this.formData.firstName, this.formData.lastName, this.formData.email);        
-    }
-
-    //Called from save of component.ts
-    setPersonal(data: Personal){
-        //update the Personal data only when the Personal-Form had been validated successfully
-        this.isPersonalFormValid = true;
+    }    
+    setPersonal(data: Personal){       
         this.formData.firstName = data.firstName;
         this.formData.lastName = data.lastName;
-        this.formData.email = data.email;
-       
+        this.formData.email = data.email;     
+        
         this.workflowService.updateStepData(STEPS.personal, data);       
         this.workflowService.validateStep(STEPS.personal);
     }
 
 
     getWork(): string{
-        //return the work type
         return this.formData.work;
     }
-    setWork(data: string){
-        //update the work type only when the Work-Form has been validated successfully
-        this.isWorkFormValid = true;
+    setWork(data: string){      
         this.formData.work = data;
-
         this.workflowService.updateStepData(STEPS.work, data);       
         this.workflowService.validateStep(STEPS.work);
     }
@@ -52,15 +40,12 @@ export class FormDataService{
     getAddress(): Address{       
          return  new Address(this.formData.street, this.formData.city, this.formData.state, this.formData.zip);        
     }
-    setAddress(data: Address){
-       
-        //Update the Address data only when the Address Form had been validated succesffuly
-        this.isAddressFormValid = true;
+    setAddress(data: Address){ 
         this.formData.street = data.street;
         this.formData.city = data.city;
         this.formData.state = data.state;
-        this.formData.zip = data.zip;
-       
+        this.formData.zip = data.zip;       
+     
         this.workflowService.updateStepData(STEPS.address, data);        
         this.workflowService.validateStep(STEPS.address);
     }
@@ -76,19 +61,12 @@ export class FormDataService{
         this.workflowService.resetSteps();
 
         // Return the form data after all this. * members had been reset
-        this.formData.clear();
-        this.isPersonalFormValid = this.isWorkFormValid = this.isAddressFormValid = false;
+        this.formData.clear();       
         return this.formData;
     }
 
     isFormValid(): boolean{
-
-        // Return true if all forms had been validated succesffuly; otherwise, return false
-
-        return this.isPersonalFormValid &&
-        this.isWorkFormValid &&
-        this.isAddressFormValid;
+        this.workflowService.validateStep(STEPS.result); //CURRENTLY there is nothing special about the result-page, we can by default set it to valid.
+        return this.workflowService.isValid();
     }
-
-
 }

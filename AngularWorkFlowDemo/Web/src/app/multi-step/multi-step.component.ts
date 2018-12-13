@@ -3,7 +3,7 @@ import { Router} from '@angular/router';
 
 import { WorkflowService } from '../workflow/workflow.service';
 import { FormDataService } from '../data/formData.service';
-import { SimpleWorkFlow, RegisterUserWorkFlow } from '../workflow/workflow.model';
+import {BasicWorkFlow, SimpleWorkFlow, RegisterUserWorkFlow } from '../workflow/workflow.model';
 
 @Component({
   selector: 'app-multi-step',
@@ -21,7 +21,9 @@ export class MultiStepComponent implements OnInit {
     this.formData = this.formDataService.getFormData();
     
     //Configure
-    this.workflowService.setWorkflowSteps(new RegisterUserWorkFlow());  //RegisterUserWorkflow //new SimpleWorkFlow()
-    this.router.navigate(['./register/personal']);        
-  }
+    this.workflowService.setWorkflow(new RegisterUserWorkFlow());   //BasicWorkFlow     //SimpleWorkFlow()   //RegisterUserWorkFlow    
+    let firstPath =this.workflowService.getFirstStep();
+    let url = `/register/${firstPath}`;
+    this.router.navigate([url]);        
+    }
 }
