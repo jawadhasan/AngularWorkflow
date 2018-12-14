@@ -20,6 +20,8 @@ import { CompanyEditComponent } from './company/company-edit.component';
 import { WorkflowGuard }        from './workflow/workflow-guard.service';
 import { WorkflowService }      from './workflow/workflow.service';
 
+import { VendingMachineComponent } from './vending-machine/vending-machine.component';
+
 
 export const appRoutes: Routes = [
 
@@ -36,6 +38,8 @@ export const appRoutes: Routes = [
     ]
   },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'vendingMachine', component: VendingMachineComponent },
+
   { path: 'accounts', component: AccountsComponent },
   { path: 'companies', component: CompanyComponent },
   { path: 'companies/:id', component: CompanyEditComponent },

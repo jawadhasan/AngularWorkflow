@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-toolbar>
+    <span>{{pageTitle}}</span>
+  </mat-toolbar>
+
+  <div class="machine">
+
+    <div class="col-md-8">
+      <div *ngFor="let cell of machine.cells" (click)="machine.select(cell)" [ngClass]="{'selected': machine.selectedCell.product === cell.product, 'sold': cell.sold}">
+        <div class="col-md-4 cell">
+          <div class="col-md-6 image">
+            <img [src]="cell.product.category.getImageUrl()" [alt]="cell?.product?.category?.name" />
+          </div>
+          <div class="col-md-6 productInfo">
+            <div>{{cell.product.name}}</div>
+            <h4>{{cell.stock}}</h4>
+            <h3>{{cell.product.price}} $</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h4> Paid: $ <span id="total">{{machine.paid}}</span></h4>
+
+      <div class="acceptedCoins">
+        <div *ngFor="let coin of machine.acceptedCoins" class="acceptCoin">
+          <!-- <img data-bind="attr: { src: getImageUrl(), alt: value }, click: $parent.acceptCoin"/> -->
+          <img [src]="coin.getImageUrl()" [alt]="coin.value" (click)="machine.acceptCoin(coin)" />
+        </div>
+      </div>
+
+      <h3>
+        <div>{{machine.selectedCell.product.name}}
+          $ <span> {{machine.selectedCell.product.price}}</span>
+        </div>
+      </h3>
+      <button class="btn btn-primary payButton" [disabled]="!machine.canPay()" (click)="machine.pay()" >Pay</button>
+    </div>
+  </div>
+
+</div>

@@ -11,8 +11,9 @@ export interface IMenuItem {
 })
 export class MenuService {
   items: Array<IMenuItem> = [   
-    { text: 'Dashboard', icon: 'glyphicon-dashboard', route: '/dashboard' },
-    { text: 'Companies', icon: 'glyphicon-briefcase', route: '/companies' },
-    { text: 'Accounts', icon: 'glyphicon-euro', route: '/accounts' }
+    { text: 'Dashboard', icon: 'glyphicon-dashboard', route: '/dashboard' },    
+    { text: 'Companies', icon: 'glyphicon-briefcase', route: '/companies' },    
+    { text: 'Accounts', icon: 'glyphicon-euro', route: '/accounts' },
+    { text: 'Vending-Machine', icon: 'glyphicon-dashboard', route: '/vendingMachine' },
   ];
 }

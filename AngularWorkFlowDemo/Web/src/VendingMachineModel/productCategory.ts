@@ -1,6 +1,6 @@
 abstract class ProductCategory {
     
-    protected imgPath = "img/";
+    protected imgPath = "./assets/img/";
     name:string;
     abstract getImageUrl():string;
 }

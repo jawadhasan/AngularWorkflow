@@ -1,5 +1,6 @@
 
 export abstract class Coin{
+    protected imgPath = "./assets/img/";
     value: number;
 
     constructor(value: number){
@@ -16,7 +17,7 @@ export class Dime extends Coin{
         super(.10);
     }
     getImageUrl():string{
-        return "img/Dime.png"
+        return this.imgPath + "Dime.png"
     }
 }
 
@@ -27,7 +28,7 @@ export class Quarter extends Coin{
     }
 
     getImageUrl():string{
-        return "img/Quarter.png"
+        return this.imgPath + "Quarter.png"
     }
 }
 
@@ -39,7 +40,7 @@ export class Half extends Coin{
     }
 
     getImageUrl():string{
-        return "img/Half.png"
+        return this.imgPath +  "Half.png"
     }
 }
 
@@ -48,6 +49,6 @@ export class Dollar extends Coin {
         super(1);
     }
     getImageUrl () {
-        return "img/Dollar.jpg";
+        return this.imgPath +  "Dollar.jpg";
     }
 }

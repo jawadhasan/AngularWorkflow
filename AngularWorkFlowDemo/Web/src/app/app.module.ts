@@ -48,6 +48,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormDataService } from './data/formData.service';
 import { WorkflowService } from './workflow/workflow.service';
 import { WorkflowGuard } from './workflow/workflow-guard.service';
+import { VendingMachineComponent } from './vending-machine/vending-machine.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { WorkflowGuard } from './workflow/workflow-guard.service';
     AddressComponent,
     ResultComponent,
     NavbarComponent,
+    VendingMachineComponent,
 
   ],
   imports: [

@@ -3,7 +3,7 @@ import * as Coins from "./coin"
 import { Product, Initial as init} from "./product"
 import getVendingProduct from "./productFactory"
 
-enum VendingMachineSize{
+export enum VendingMachineSize{
     small = 6,
     medium = 9,
     large = 12
@@ -31,7 +31,7 @@ export class VendingMachine {
         new Coins.Half(),
         new Coins.Dollar()
     ];
-    canPay = ()=> this.paid - this.selectedCell.product.price > 0;
+    canPay = ()=> this.paid - this.selectedCell.product.price >= 0;
 
     constructor(public useProductFactory = true) {}
 
@@ -45,7 +45,7 @@ export class VendingMachine {
 
     select = (cell: Cell): void => {
         cell.sold = false;
-        this.selectedCell = cell;
+        this.selectedCell = cell;       
     }
 
     acceptCoin = (coin: Coins.Coin): void =>{

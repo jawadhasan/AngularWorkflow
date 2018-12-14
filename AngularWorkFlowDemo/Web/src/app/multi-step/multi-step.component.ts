@@ -14,7 +14,6 @@ export class MultiStepComponent implements OnInit {
   title = "Register wizard";
   @Input() formData;
 
-
   constructor(private router: Router, private workflowService: WorkflowService, private formDataService: FormDataService) { }
 
   ngOnInit() {
