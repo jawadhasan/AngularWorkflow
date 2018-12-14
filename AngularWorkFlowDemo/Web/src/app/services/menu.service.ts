@@ -14,6 +14,7 @@ export class MenuService {
     { text: 'Dashboard', icon: 'glyphicon-dashboard', route: '/dashboard' },    
     { text: 'Companies', icon: 'glyphicon-briefcase', route: '/companies' },    
     { text: 'Accounts', icon: 'glyphicon-euro', route: '/accounts' },
+    { text: 'Projects', icon: 'glyphicon-dashboard', route: '/projects' },
     { text: 'Vending-Machine', icon: 'glyphicon-dashboard', route: '/vendingMachine' },
   ];
 }

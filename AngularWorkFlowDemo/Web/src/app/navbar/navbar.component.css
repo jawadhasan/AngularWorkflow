@@ -18,3 +18,18 @@
   background: #f1685e; 
   color: #fff
 }
+
+ul{
+  display: flex;
+  align-items: stretch; 
+  justify-content: space-between;
+  width: 100%;
+  background: #cacaca;
+  margin: 0;
+  padding: 0;
+}
+
+/* .liner {
+  display: flex;  
+} */
+

@@ -50,6 +50,10 @@ import { WorkflowService } from './workflow/workflow.service';
 import { WorkflowGuard } from './workflow/workflow-guard.service';
 import { VendingMachineComponent } from './vending-machine/vending-machine.component';
 
+
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectService } from './services/project.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +81,7 @@ import { VendingMachineComponent } from './vending-machine/vending-machine.compo
     ResultComponent,
     NavbarComponent,
     VendingMachineComponent,
+    ProjectsComponent,
 
   ],
   imports: [
@@ -95,6 +100,7 @@ import { VendingMachineComponent } from './vending-machine/vending-machine.compo
     WorkflowGuard,
     FormDataService,
     WorkflowService,
+    ProjectService
 
     ],
   bootstrap: [AppComponent],

@@ -1,58 +1,15 @@
-<div class="board-inner" id="status-buttons">
-  
+<div class="board-inner" id="status-buttons">  
   <ul class="nav nav-tabs" id="myTab">
 
     <div class="liner"></div>
-
-    <li *ngFor="let step of workflowService.workflow.steps;index as i;">          
+    <li *ngFor="let step of workflowService.workflow.steps;index as i;" [style.width.%]="100/workflowService.workflow.steps.length">          
 
           <a routerLink="{{step.step}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="tab" title="{{step.step}}">
               <span [class]="getTabClass(i)">
                 <i class="{{step.icon}}"></i>
               </span>
             </a>
-    </li>
-  
-    <!-- <li>
-      <a routerLink="personal" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="tab" title="personal">
-        <span class="round-tabs one">
-          <i class="glyphicon glyphicon-user"></i>
-        </span>
-      </a>
-    </li>
-
-
-  
-    <li>
-      <a routerLink="work" routerLinkActive="active" data-toggle="tab" title="work">
-        <span class="round-tabs two">
-          <i class="glyphicon glyphicon-tasks"></i>
-        </span> 
-      </a>
-    </li>
-
-
-
-   
-    <li>
-      <a routerLink="address" routerLinkActive="active" data-toggle="tab" title="address">    
-        <span class="round-tabs three">
-          <i class="glyphicon glyphicon-home"></i>
-        </span>
-      </a>
-    </li>
-
-
-   
-    <li>
-      <a routerLink="result" routerLinkActive="active" data-toggle="tab" title="completed">
-        <span class="round-tabs four">
-          <i class="glyphicon glyphicon-ok"></i>
-        </span>
-      </a>
-    </li> -->
-
+    </li>  
   </ul>
   <div class="clearfix"></div>
-
 </div>

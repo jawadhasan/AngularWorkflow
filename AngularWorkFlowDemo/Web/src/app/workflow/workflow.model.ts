@@ -92,3 +92,11 @@ export class RegisterUserWorkFlow extends BaseWorkflow {
     }
 }
 
+
+
+export class LongWorkFlow extends BaseWorkflow {
+    constructor(){
+        super(WORKFLOWS.registeruser, [personalStep, workStep,workStep,workStep,workStep, addressStep, resultStep]);     
+    }
+}
+

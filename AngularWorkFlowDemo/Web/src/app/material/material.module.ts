@@ -19,6 +19,7 @@ import * as Material from '@angular/material';
     Material.MatIconModule,
     Material.MatDialogModule,
 
+    Material.MatTableModule,
     Material.MatCardModule,
     Material.MatProgressSpinnerModule
   ],
@@ -34,8 +35,9 @@ import * as Material from '@angular/material';
     Material.MatNativeDateModule,
     Material.MatButtonModule,
     Material.MatIconModule,
-
     Material.MatDialogModule,
+
+    Material.MatTableModule,
 
     Material.MatCardModule,
     Material.MatProgressSpinnerModule
