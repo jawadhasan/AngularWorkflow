@@ -18,6 +18,8 @@ export interface IWorkflow{
   steps: Array<IWorkflowStep>;
   isValid():boolean;
   getFirstStep():string;
+  getNextMember(startIndex): IWorkflowStep;
+  getPrevMember(startIndex): IWorkflowStep;
 }
 
 export interface IWorkflowStep{
@@ -74,6 +76,18 @@ abstract class BaseWorkflow implements IWorkflow{
     isValid():boolean{
         return this.steps.every(s=> s.valid);
     }
+
+    getNextMember(startIndex) {
+        startIndex = startIndex || 0;
+        startIndex++;  
+        return this.steps[startIndex];      
+     };
+
+     getPrevMember(startIndex){
+        startIndex = startIndex || 0;
+        startIndex--;
+        return this.steps[startIndex];  
+     }
 }
 
 export class BasicWorkFlow extends BaseWorkflow{  

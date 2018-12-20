@@ -3,6 +3,7 @@ import { Router }              from '@angular/router';
 
 import { Personal } from '../../data/formData.model'
 import { FormDataService } from '../../data/formData.service';
+import { STEPS } from '../../workflow/workflow.model';
 
 @Component({
   selector: 'app-personal',
@@ -10,29 +11,30 @@ import { FormDataService } from '../../data/formData.service';
   styleUrls: ['./personal.component.css']
 })
 export class PersonalComponent implements OnInit { 
-  title = 'Please tell us about yourself.';
+  title: string;
   personal: Personal;
 
   constructor(private router: Router, private formDataService: FormDataService) {
-
    }
 
   ngOnInit() {
-    this.personal = this.formDataService.getPersonal(); 
+    let step = this.formDataService.getStep(STEPS.personal);     
+    this.formDataService.setCurrentStep(step);   
+    this.personal = this.formDataService.getStepData(STEPS.personal);   
+    this.title = step.title;
   }
 
   save(form: any): boolean{
     if(!form.valid){
       return false;
-    }
-    this.formDataService.setPersonal(this.personal);
+    }       
+    this.formDataService.setStepData(STEPS.personal, this.personal);
     return true;
   }
 
   goToNext(form: any){
     if(this.save(form)){
-      // Navigate to the work page
-      this.router.navigate(['register/work']);
+      this.router.navigate([this.formDataService.getNextStepUrl()]);      
     }
   }
 

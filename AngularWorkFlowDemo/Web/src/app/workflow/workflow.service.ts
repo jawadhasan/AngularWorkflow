@@ -6,12 +6,27 @@ import { IWorkflow, IWorkflowStep } from './workflow.model';
 @Injectable()
 export class WorkflowService {
 
+    currentWorkflowStep: IWorkflowStep;
     private workflow: IWorkflow;
-
+    
     isValid():boolean{
         return this.workflow.isValid();
     }
-   
+
+    getNextStep(): IWorkflowStep{
+        let currentItemIndex = this.workflow.steps.indexOf(this.currentWorkflowStep);
+        let nextMember =    this.workflow.getNextMember(currentItemIndex);     
+        return nextMember;
+    }
+    getPrevStep(): IWorkflowStep{
+        let currentItemIndex = this.workflow.steps.indexOf(this.currentWorkflowStep);
+        let prevMember =    this.workflow.getPrevMember(currentItemIndex);  
+        return prevMember;  
+    }
+
+
+
+
     getFirstStep():string{
        return this.workflow.getFirstStep();
     }
@@ -25,10 +40,8 @@ export class WorkflowService {
 
     validateStep(step: string) {
         let wfStep = this.workflow.steps.find(x=> x.step === step);
-        if(wfStep){
-            
+        if(wfStep){            
             wfStep.valid = true;
-
             console.log('validateStep: ', step);
         }
     }   
