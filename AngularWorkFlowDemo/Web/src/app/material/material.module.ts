@@ -19,6 +19,7 @@ import * as Material from '@angular/material';
     Material.MatIconModule,
     Material.MatDialogModule,
 
+    Material.MatStepperModule,
     Material.MatTableModule,
     Material.MatCardModule,
     Material.MatProgressSpinnerModule
@@ -37,6 +38,7 @@ import * as Material from '@angular/material';
     Material.MatIconModule,
     Material.MatDialogModule,
 
+    Material.MatStepperModule,
     Material.MatTableModule,
 
     Material.MatCardModule,

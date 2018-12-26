@@ -1,4 +1,5 @@
-import {Personal, Address, FormData} from '../data/formData.model';
+import {Personal, Address} from '../data/formData.model';
+import { Observable } from 'rxjs';
 
 export const WORKFLOWS = {
     basic: 'basic',
@@ -28,55 +29,43 @@ export interface IWorkflowStep{
   step: string;
   valid: boolean;
   icon: string;
-
-  setData(data: any):void;
-  getData():any;
-
 }
-export class WorkflowStep<T> implements IWorkflowStep {
+export class WorkflowStep implements IWorkflowStep {
     title: string;
-    data: T;
+    data: any;
     step: string;    
     valid: boolean;
-    icon: string;   
+    icon: string;
 
     constructor(title:string, step: string, icon:string){
         this.title = title;
         this.step = step;
         this.icon = icon; 
-    }
-
-    setData(data: T){
-        this.data = data;        
-    }
-    getData(): T{
-        return this.data;
+        this.valid = false;
     }
 }
 
-
-export const personalStep: IWorkflowStep = new WorkflowStep<Personal>("Please tell us about yourself.",STEPS.personal,"glyphicon glyphicon-user");
-const workStep: IWorkflowStep = new WorkflowStep<string>("What do you do?.",STEPS.work,"glyphicon glyphicon-tasks");
-const addressStep: IWorkflowStep = new WorkflowStep<Address>("Where do you live?",STEPS.address,"glyphicon glyphicon-home");
-const resultStep: IWorkflowStep = new WorkflowStep<any>("Thanks for staying tuned!",STEPS.result,"glyphicon glyphicon-ok");
-
+export const personalStep: IWorkflowStep = new WorkflowStep("Please tell us about yourself.",STEPS.personal,"glyphicon glyphicon-user");
+const workStep: IWorkflowStep = new WorkflowStep("What do you do?.",STEPS.work,"glyphicon glyphicon-tasks");
+const addressStep: IWorkflowStep = new WorkflowStep("Where do you live?",STEPS.address,"glyphicon glyphicon-home");
+const resultStep: IWorkflowStep = new WorkflowStep("Thanks for staying tuned!",STEPS.result,"glyphicon glyphicon-ok");
 
 
 abstract class BaseWorkflow implements IWorkflow{   
     name:string;
     steps: IWorkflowStep[];
     
+
     constructor(name: string, steps:IWorkflowStep[]){
         this.name = name;
         this.steps = steps;        
     }
-    getFirstStep():string{
-        return this.steps[0].step; //being used for routing
-    }
     isValid():boolean{
         return this.steps.every(s=> s.valid);
     }
-
+    getFirstStep():string{
+        return this.steps[0].step; //being used for routing
+    }
     getNextMember(startIndex) {
         startIndex = startIndex || 0;
         startIndex++;  

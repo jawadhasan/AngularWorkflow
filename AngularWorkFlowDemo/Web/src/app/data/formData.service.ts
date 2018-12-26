@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+﻿import { Injectable, Output, EventEmitter } from '@angular/core';
 import {FormData, Personal, Address} from './formData.model'
 import { WorkflowService }           from '../workflow/workflow.service';
 import { STEPS, IWorkflowStep }                     from '../workflow/workflow.model';
@@ -8,11 +8,18 @@ import { STEPS, IWorkflowStep }                     from '../workflow/workflow.m
 
 @Injectable()
 export class FormDataService{
+    @Output() stepCompleted = new EventEmitter<string>();
+    @Output() stepAnimationDone = new EventEmitter<any>();
 
+    
     private baseUri = "/register/";
     private formData: FormData = new FormData(); 
+    steps: IWorkflowStep[] = []
 
-    constructor(private workflowService: WorkflowService) { }
+    
+    constructor(private workflowService: WorkflowService) {
+        this.steps = this.workflowService.workflow.steps;
+     }
 
     
     //wrappers coz I dont want to expose workflowservice to components for now
@@ -32,10 +39,15 @@ export class FormDataService{
     }
     //wrappers
 
-
+    isStepValid(step:string):boolean{        
+        let validationResult = this.getStep(step).valid;       
+        console.log('isStepValid', validationResult);
+       return  validationResult;
+    }
 
     //following getStepData/setStepData methods are called from init()/save() of respective components
     getStepData(step:string):any{
+        console.log('getting data ' + step);
         switch(step){
             case STEPS.personal: return new Personal(this.formData.firstName, this.formData.lastName, this.formData.email); 
             case STEPS.work:     return  this.formData.work;
@@ -59,6 +71,11 @@ export class FormDataService{
                 this.setAddress(data);
                 break;
 
+            case STEPS.result:
+            this.workflowService.validateStep(STEPS.result);
+            //this.stepCompleted.emit(STEPS.address);
+            break;        
+
            default: throw new Error("not implemented");
         }
     }
@@ -70,11 +87,14 @@ export class FormDataService{
         
         this.workflowService.updateStepData(STEPS.personal, data);       
         this.workflowService.validateStep(STEPS.personal);
+        this.stepCompleted.emit(STEPS.personal);
     } 
     private setWork(data: string){      
         this.formData.work = data;
         this.workflowService.updateStepData(STEPS.work, data);       
         this.workflowService.validateStep(STEPS.work);
+        this.stepCompleted.emit(STEPS.work);
+
     } 
     private setAddress(data: Address){ 
         this.formData.street = data.street;
@@ -84,6 +104,7 @@ export class FormDataService{
      
         this.workflowService.updateStepData(STEPS.address, data);        
         this.workflowService.validateStep(STEPS.address);
+        this.stepCompleted.emit(STEPS.address);
     }
 
 
@@ -102,7 +123,6 @@ export class FormDataService{
     }
 
     isFormValid(): boolean{
-        this.workflowService.validateStep(STEPS.result); //CURRENTLY there is nothing special about the result-page, we can by default set it to valid.
         return this.workflowService.isValid();
     }
 }

@@ -22,6 +22,7 @@ import { WorkflowService }      from './workflow/workflow.service';
 
 import { VendingMachineComponent } from './vending-machine/vending-machine.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { RegisterStepperComponent } from './register-stepper/register-stepper.component';
 
 
 export const appRoutes: Routes = [
@@ -37,7 +38,8 @@ export const appRoutes: Routes = [
       { path: 'address', component: AddressComponent, canActivate: [WorkflowGuard]},
       { path: 'result', component: ResultComponent, canActivate: [WorkflowGuard]}
     ]
-  },
+  }, 
+  { path: 'stepper', component: RegisterStepperComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'vendingMachine', component: VendingMachineComponent },

@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormData } from '../../data/formData.model';
 import { FormDataService } from '../../data/formData.service';
 import { STEPS } from '../../workflow/workflow.model';
+import { IWidget } from '../../../widget-fx/IWidget';
 
 @Component({
   selector: 'app-result',

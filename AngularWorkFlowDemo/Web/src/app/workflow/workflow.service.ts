@@ -7,7 +7,7 @@ import { IWorkflow, IWorkflowStep } from './workflow.model';
 export class WorkflowService {
 
     currentWorkflowStep: IWorkflowStep;
-    private workflow: IWorkflow;
+    workflow: IWorkflow;
     
     isValid():boolean{
         return this.workflow.isValid();
@@ -42,14 +42,14 @@ export class WorkflowService {
         let wfStep = this.workflow.steps.find(x=> x.step === step);
         if(wfStep){            
             wfStep.valid = true;
-            console.log('validateStep: ', step);
         }
     }   
 
     updateStepData(step: string, data:any){
         let wfStep = this.workflow.steps.find(x=> x.step === step);
         if(wfStep){
-            wfStep.setData(data);
+            // wfStep.setData(data);
+            wfStep.data = data;
         }
     }
 

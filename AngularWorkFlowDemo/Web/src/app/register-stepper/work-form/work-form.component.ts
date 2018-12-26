@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router }              from '@angular/router';
-
 import { FormDataService } from '../../data/formData.service';
 import { STEPS } from '../../workflow/workflow.model';
 import { IWidget } from '../../../widget-fx/IWidget';
 
 @Component({
-  selector: 'app-work',
-  templateUrl: './work.component.html',
-  styleUrls: ['./work.component.css']
+  selector: 'app-work-form',
+  templateUrl: './work-form.component.html',
+  styleUrls: ['./work-form.component.css']
 })
-export class WorkComponent implements OnInit {
+export class WorkFormComponent implements OnInit, IWidget {
   title: string;
   workType: string; 
 
-  constructor(private router: Router, private formDataService: FormDataService) { }
+  constructor(private formDataService: FormDataService) { }
 
   ngOnInit() {
     let step = this.formDataService.getStep(STEPS.work);  
@@ -31,14 +29,9 @@ export class WorkComponent implements OnInit {
     return true;
   }
 
-  goToPrevious(form: any) {
-    if (this.save(form)) {     
-      this.router.navigate([this.formDataService.getPrevStepUrl()]);
-    }
-  }
   goToNext(form: any){
     if(this.save(form)){
-      this.router.navigate([this.formDataService.getNextStepUrl()]);      
+     console.log('workform is saved', this.workType);     
     }
   }
 

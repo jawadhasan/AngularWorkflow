@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Address } from '../../data/formData.model'
 import { FormDataService } from '../../data/formData.service';
 import { STEPS } from '../../workflow/workflow.model';
+import { IWidget } from '../../../widget-fx/IWidget';
 
 @Component({
   selector: 'app-address',

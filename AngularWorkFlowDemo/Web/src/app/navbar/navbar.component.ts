@@ -13,10 +13,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
-
-
   getTabClass(tabIndex: number): string {
 
     switch (tabIndex) {

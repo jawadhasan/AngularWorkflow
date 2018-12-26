@@ -4,13 +4,14 @@ import { Router }              from '@angular/router';
 import { Personal } from '../../data/formData.model'
 import { FormDataService } from '../../data/formData.service';
 import { STEPS } from '../../workflow/workflow.model';
+import { IWidget } from '../../../widget-fx/IWidget';
 
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
   styleUrls: ['./personal.component.css']
 })
-export class PersonalComponent implements OnInit { 
+export class PersonalComponent implements OnInit {
   title: string;
   personal: Personal;
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
@@ -53,6 +53,12 @@ import { VendingMachineComponent } from './vending-machine/vending-machine.compo
 
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectService } from './services/project.service';
+import { RegisterStepperComponent } from './register-stepper/register-stepper.component';
+import { PersonalFormComponent } from './register-stepper/personal-form/personal-form.component';
+import { WorkFormComponent } from './register-stepper/work-form/work-form.component';
+import { WfstepDirective } from './directives/wfstep.directive';
+import { AddressFormComponent } from './register-stepper/address-form/address-form.component';
+import { ResultFormComponent } from './register-stepper/result-form/result-form.component';
 
 @NgModule({
   declarations: [
@@ -82,11 +88,18 @@ import { ProjectService } from './services/project.service';
     NavbarComponent,
     VendingMachineComponent,
     ProjectsComponent,
+    RegisterStepperComponent,
+    PersonalFormComponent,
+    WorkFormComponent,
+    WfstepDirective,
+    AddressFormComponent,
+    ResultFormComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
@@ -100,10 +113,17 @@ import { ProjectService } from './services/project.service';
     WorkflowGuard,
     FormDataService,
     WorkflowService,
-    ProjectService
+    ProjectService,
+    FormBuilder
 
     ],
   bootstrap: [AppComponent],
-  entryComponents: [AccountComponent]
+  entryComponents: [
+    AccountComponent, 
+    PersonalFormComponent, 
+    WorkFormComponent, 
+    AddressFormComponent,
+    ResultFormComponent
+  ]
 })
 export class AppModule { }

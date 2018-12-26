@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FrameworkConfigSettings } from './services/framework-config.service';
 import { FrameworkConfigService } from './services/framework-config.service';
+import { WorkflowService } from './workflow/workflow.service';
+import { RegisterUserWorkFlow } from './workflow/workflow.model';
 
 
 @Component({
@@ -11,7 +13,9 @@ import { FrameworkConfigService } from './services/framework-config.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(private frameworkConfigService: FrameworkConfigService) {
+  constructor(
+    private frameworkConfigService: FrameworkConfigService, 
+    private workflowService: WorkflowService) {
 
     let config: FrameworkConfigSettings = {
       socialIcons: [
@@ -26,6 +30,9 @@ export class AppComponent {
     };
 
     frameworkConfigService.configure(config);
+
+    this.workflowService.setWorkflow(new RegisterUserWorkFlow());  //BasicWorkFlow     //SimpleWorkFlow()   //RegisterUserWorkFlow    //LongWorkFlow
+
 
   }
 }
