@@ -59,6 +59,11 @@ import { WorkFormComponent } from './register-stepper/work-form/work-form.compon
 import { WfstepDirective } from './directives/wfstep.directive';
 import { AddressFormComponent } from './register-stepper/address-form/address-form.component';
 import { ResultFormComponent } from './register-stepper/result-form/result-form.component';
+import { RegisterWorkflowComponent } from './register-workflow/register-workflow.component';
+import { PersonalStepComponent } from './register-workflow/personal-step/personal-step.component';
+import { WorkStepComponent } from './register-workflow/work-step/work-step.component';
+import { AddressStepComponent } from './register-workflow/address-step/address-step.component';
+import { ResultStepComponent } from './register-workflow/result-step/result-step.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +99,11 @@ import { ResultFormComponent } from './register-stepper/result-form/result-form.
     WfstepDirective,
     AddressFormComponent,
     ResultFormComponent,
+    RegisterWorkflowComponent,
+    PersonalStepComponent,
+    WorkStepComponent,
+    AddressStepComponent,
+    ResultStepComponent,
 
   ],
   imports: [

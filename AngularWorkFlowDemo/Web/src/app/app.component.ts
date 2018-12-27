@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FrameworkConfigSettings } from './services/framework-config.service';
 import { FrameworkConfigService } from './services/framework-config.service';
 import { WorkflowService } from './workflow/workflow.service';
-import { RegisterUserWorkFlow } from './workflow/workflow.model';
+import { RegisterUserWorkFlow, SimpleWorkFlow } from './workflow/workflow.model';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class AppComponent {
 
     frameworkConfigService.configure(config);
 
-    this.workflowService.setWorkflow(new RegisterUserWorkFlow());  //BasicWorkFlow     //SimpleWorkFlow()   //RegisterUserWorkFlow    //LongWorkFlow
+    this.workflowService.setWorkflow(new SimpleWorkFlow());  //BasicWorkFlow     //SimpleWorkFlow()   //RegisterUserWorkFlow    //LongWorkFlow
 
 
   }

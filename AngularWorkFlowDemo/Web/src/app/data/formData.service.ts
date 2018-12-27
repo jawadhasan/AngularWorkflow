@@ -12,7 +12,10 @@ export class FormDataService{
     @Output() stepAnimationDone = new EventEmitter<any>();
 
     
-    private baseUri = "/register/";
+    // private baseUri = "/register/";
+
+    private baseUri = "/registerwf";
+
     private formData: FormData = new FormData(); 
     steps: IWorkflowStep[] = []
 
@@ -52,6 +55,7 @@ export class FormDataService{
             case STEPS.personal: return new Personal(this.formData.firstName, this.formData.lastName, this.formData.email); 
             case STEPS.work:     return  this.formData.work;
             case STEPS.address:  return new Address(this.formData.street, this.formData.city, this.formData.state, this.formData.zip);
+            case STEPS.result: return this.formData;
             default: throw new Error("not implemented");
         }
     }
@@ -72,8 +76,8 @@ export class FormDataService{
                 break;
 
             case STEPS.result:
-            this.workflowService.validateStep(STEPS.result);
-            //this.stepCompleted.emit(STEPS.address);
+             this.setResult();
+
             break;        
 
            default: throw new Error("not implemented");
@@ -105,6 +109,13 @@ export class FormDataService{
         this.workflowService.updateStepData(STEPS.address, data);        
         this.workflowService.validateStep(STEPS.address);
         this.stepCompleted.emit(STEPS.address);
+    }
+
+
+    private setResult(){
+        //can post to server if needed....
+        this.workflowService.validateStep(STEPS.result);
+        this.stepCompleted.emit(STEPS.result);
     }
 
 

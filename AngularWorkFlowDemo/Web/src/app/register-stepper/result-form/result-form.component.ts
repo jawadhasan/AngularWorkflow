@@ -19,7 +19,6 @@ export class ResultFormComponent implements OnInit, IWidget {
   constructor(private formDataService: FormDataService) { }
 
   ngOnInit() {
-    console.log('result init');
     let step = this.formDataService.getStep(STEPS.result);     
     this.formDataService.setCurrentStep(step);   
     this.formData = this.formDataService.getFormData();

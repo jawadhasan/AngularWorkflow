@@ -23,23 +23,41 @@ import { WorkflowService }      from './workflow/workflow.service';
 import { VendingMachineComponent } from './vending-machine/vending-machine.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { RegisterStepperComponent } from './register-stepper/register-stepper.component';
+import { PersonalFormComponent } from './register-stepper/personal-form/personal-form.component';
+import { WorkFormComponent } from './register-stepper/work-form/work-form.component';
+import { AddressFormComponent } from './register-stepper/address-form/address-form.component';
+import { ResultFormComponent } from './register-stepper/result-form/result-form.component';
+import { RegisterWorkflowComponent } from './register-workflow/register-workflow.component';
+import { PersonalStepComponent } from './register-workflow/personal-step/personal-step.component';
+import { WorkStepComponent } from './register-workflow/work-step/work-step.component';
+import { AddressStepComponent } from './register-workflow/address-step/address-step.component';
+import { ResultStepComponent } from './register-workflow/result-step/result-step.component';
 
 
 export const appRoutes: Routes = [
+  // {
+  //   path: 'register', component: MultiStepComponent,
+  //   children: [
+  //     { path: 'personal', component: PersonalComponent },
+  //     { path: 'work', component: WorkComponent, canActivate: [WorkflowGuard] },
+  //     { path: 'address', component: AddressComponent, canActivate: [WorkflowGuard]},
+  //     { path: 'result', component: ResultComponent, canActivate: [WorkflowGuard]}
+  //   ]
+  // },
 
-  
+  // { path: 'stepper', component: RegisterStepperComponent },
+
 
   {
-
-    path: 'register', component: MultiStepComponent,
+    path: 'registerwf', component: RegisterWorkflowComponent,
     children: [
-      { path: 'personal', component: PersonalComponent },
-      { path: 'work', component: WorkComponent, canActivate: [WorkflowGuard] },
-      { path: 'address', component: AddressComponent, canActivate: [WorkflowGuard]},
-      { path: 'result', component: ResultComponent, canActivate: [WorkflowGuard]}
+      // { path: '', redirectTo:'personal', pathMatch: 'full' },
+      { path: 'personal', component: PersonalStepComponent },
+      { path: 'work', component: WorkStepComponent },
+      { path: 'address', component: AddressStepComponent},
+      { path: 'result', component: ResultStepComponent}
     ]
   }, 
-  { path: 'stepper', component: RegisterStepperComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'vendingMachine', component: VendingMachineComponent },
