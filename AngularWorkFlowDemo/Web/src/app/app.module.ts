@@ -60,10 +60,8 @@ import { WfstepDirective } from './directives/wfstep.directive';
 import { AddressFormComponent } from './register-stepper/address-form/address-form.component';
 import { ResultFormComponent } from './register-stepper/result-form/result-form.component';
 import { RegisterWorkflowComponent } from './register-workflow/register-workflow.component';
-import { PersonalStepComponent } from './register-workflow/personal-step/personal-step.component';
-import { WorkStepComponent } from './register-workflow/work-step/work-step.component';
-import { AddressStepComponent } from './register-workflow/address-step/address-step.component';
-import { ResultStepComponent } from './register-workflow/result-step/result-step.component';
+
+import { OnboardingModule } from './onboarding/onboarding.module';
 
 @NgModule({
   declarations: [
@@ -99,22 +97,17 @@ import { ResultStepComponent } from './register-workflow/result-step/result-step
     WfstepDirective,
     AddressFormComponent,
     ResultFormComponent,
-    RegisterWorkflowComponent,
-    PersonalStepComponent,
-    WorkStepComponent,
-    AddressStepComponent,
-    ResultStepComponent,
-
+    RegisterWorkflowComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    OnboardingModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MaterialModule
-
   ],
   providers: [
     JsRouter,

@@ -9,10 +9,7 @@ import { STEPS, IWorkflowStep }                     from '../workflow/workflow.m
 @Injectable()
 export class FormDataService{
     @Output() stepCompleted = new EventEmitter<string>();
-    @Output() stepAnimationDone = new EventEmitter<any>();
-
-    
-    // private baseUri = "/register/";
+    @Output() stepAnimationDone = new EventEmitter<any>();  
 
     private baseUri = "/registerwf";
 

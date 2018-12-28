@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { SignInComponent } from './sign-in/sign-in.component';
-
-
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { MultiStepComponent } from './multi-step/multi-step.component';
@@ -28,10 +26,7 @@ import { WorkFormComponent } from './register-stepper/work-form/work-form.compon
 import { AddressFormComponent } from './register-stepper/address-form/address-form.component';
 import { ResultFormComponent } from './register-stepper/result-form/result-form.component';
 import { RegisterWorkflowComponent } from './register-workflow/register-workflow.component';
-import { PersonalStepComponent } from './register-workflow/personal-step/personal-step.component';
-import { WorkStepComponent } from './register-workflow/work-step/work-step.component';
-import { AddressStepComponent } from './register-workflow/address-step/address-step.component';
-import { ResultStepComponent } from './register-workflow/result-step/result-step.component';
+
 
 
 export const appRoutes: Routes = [
@@ -48,16 +43,7 @@ export const appRoutes: Routes = [
   // { path: 'stepper', component: RegisterStepperComponent },
 
 
-  {
-    path: 'registerwf', component: RegisterWorkflowComponent,
-    children: [
-      // { path: '', redirectTo:'personal', pathMatch: 'full' },
-      { path: 'personal', component: PersonalStepComponent },
-      { path: 'work', component: WorkStepComponent },
-      { path: 'address', component: AddressStepComponent},
-      { path: 'result', component: ResultStepComponent}
-    ]
-  }, 
+ 
   { path: 'dashboard', component: DashboardComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'vendingMachine', component: VendingMachineComponent },

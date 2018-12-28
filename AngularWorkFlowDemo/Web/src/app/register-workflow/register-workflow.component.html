@@ -1,11 +1,11 @@
 <mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper>
 
-    <div *ngFor="let item of steps">
+    <div *ngFor="let step of steps">
 
-        <mat-step [completed]="item.valid" [editable]="item.editable">
-            <ng-template matStepLabel>{{item.step}}</ng-template>
+        <mat-step [completed]="step.valid" [editable]="step.editable">
+            <ng-template matStepLabel>{{step.step}}</ng-template>
             <div class="text-center">
-                <h4 class="head">{{item.title}}</h4>
+                <h4 class="head">{{step.title}}</h4>
             </div>
         </mat-step>
 

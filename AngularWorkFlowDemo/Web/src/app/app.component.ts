@@ -31,7 +31,7 @@ export class AppComponent {
 
     frameworkConfigService.configure(config);
 
-    this.workflowService.setWorkflow(new SimpleWorkFlow());  //BasicWorkFlow     //SimpleWorkFlow()   //RegisterUserWorkFlow    //LongWorkFlow
+    this.workflowService.setWorkflow(new RegisterUserWorkFlow());  //BasicWorkFlow     //SimpleWorkFlow()   //RegisterUserWorkFlow    //LongWorkFlow
 
 
   }
