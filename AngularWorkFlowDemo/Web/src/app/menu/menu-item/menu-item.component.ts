@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
-import { IMenuItem } from '../services/menu.service';
+import { IMenuItem } from '../../services/menu.service';
 
 @Component({
   selector: 'app-menu-item',

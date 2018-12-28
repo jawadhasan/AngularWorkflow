@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 import { RegisterComponent } from './register.component';
 import { PersonalComponent } from './personal/personal.component';
 import { AddressComponent } from './address/address.component';
 import { WorkComponent } from './work/work.component';
 import { ResultComponent } from './result/result.component';
+
 import { WorkflowGuard } from '../workflow/workflow-guard.service';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: 'register', component: RegisterComponent,

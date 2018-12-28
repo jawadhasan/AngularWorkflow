@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '../material/material.module';
 
 import { DynamicwfComponent } from './dynamicwf.component';
 import { PersonalFormComponent } from './personal-form/personal-form.component';
@@ -10,12 +7,11 @@ import { WorkFormComponent } from './work-form/work-form.component';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { ResultFormComponent } from './result-form/result-form.component';
 import { WfstepDirective } from './wfstep.directive';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    MaterialModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: 'dynamicwf', component: DynamicwfComponent        
