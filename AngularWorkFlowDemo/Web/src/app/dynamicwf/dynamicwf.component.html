@@ -1,0 +1,17 @@
+<mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper>
+
+  <div *ngFor="let step of steps">
+
+    <mat-step [completed]="isCompleted">
+      <ng-template matStepLabel>{{step.step}}</ng-template>
+      <div class="text-center">
+        <h4 class="head">{{step.title}}</h4>
+      </div>
+      <ng-template wf-host [widgetType]="getWidgetType(step.step)"></ng-template>
+    </mat-step>
+
+  </div>
+
+</mat-horizontal-stepper>
+
+<pre>{{ formData | json }}</pre>

@@ -17,5 +17,9 @@ export class MenuService {
     { text: 'Accounts', icon: 'glyphicon-euro', route: '/accounts' },
     { text: 'Projects', icon: 'glyphicon-dashboard', route: '/projects' },
     { text: 'Vending-Machine', icon: 'glyphicon-dashboard', route: '/vendingMachine' },
+    { text: 'Dynamic WF', icon: 'glyphicon-dashboard', route: '/dynamicwf' },
+    { text: 'Classic Register', icon: 'glyphicon-dashboard', route: '/register' }
+
+
   ];
 }

@@ -20,12 +20,6 @@ import { WorkflowService }      from './workflow/workflow.service';
 
 import { VendingMachineComponent } from './vending-machine/vending-machine.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { RegisterStepperComponent } from './register-stepper/register-stepper.component';
-import { PersonalFormComponent } from './register-stepper/personal-form/personal-form.component';
-import { WorkFormComponent } from './register-stepper/work-form/work-form.component';
-import { AddressFormComponent } from './register-stepper/address-form/address-form.component';
-import { ResultFormComponent } from './register-stepper/result-form/result-form.component';
-import { RegisterWorkflowComponent } from './register-workflow/register-workflow.component';
 
 
 
@@ -40,7 +34,6 @@ export const appRoutes: Routes = [
   //   ]
   // },
 
-  // { path: 'stepper', component: RegisterStepperComponent },
 
 
  

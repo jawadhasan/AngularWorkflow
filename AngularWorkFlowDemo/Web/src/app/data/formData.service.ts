@@ -3,15 +3,12 @@ import {FormData, Personal, Address} from './formData.model'
 import { WorkflowService }           from '../workflow/workflow.service';
 import { STEPS, IWorkflowStep }                     from '../workflow/workflow.model';
 
-
-/* Service responsbile for sharing the original input data amount the PersonalComponent, WorkComponent, AddressComponent and ResultComponent.*/
-
 @Injectable()
 export class FormDataService{
     @Output() stepCompleted = new EventEmitter<string>();
     @Output() stepAnimationDone = new EventEmitter<any>();  
 
-    private baseUri = "/registerwf";
+    private baseUri = "/register";
 
     private formData: FormData = new FormData(); 
     steps: IWorkflowStep[] = []

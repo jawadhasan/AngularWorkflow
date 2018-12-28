@@ -1,4 +1,4 @@
-import { Directive, ViewContainerRef, Input, Injector, ComponentFactoryResolver, ViewChild, Type } from '@angular/core';
+import { Directive, ViewContainerRef, Input, Injector, ComponentFactoryResolver, Type } from '@angular/core';
 import { IWidget } from '../../widget-fx/IWidget';
 
 @Directive({

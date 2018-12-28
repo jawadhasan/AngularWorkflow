@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkflowService } from '../workflow/workflow.service';
+import { WorkflowService } from '../../workflow/workflow.service';
 
 @Component({
   selector: 'app-navbar',

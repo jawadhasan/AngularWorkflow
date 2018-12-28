@@ -39,12 +39,7 @@ import { CompanyEditComponent } from './company/company-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountComponent } from './accounts/account/account.component';
 
-import { MultiStepComponent } from './multi-step/multi-step.component';
-import { PersonalComponent } from './register/personal/personal.component';
-import { WorkComponent } from './register/work/work.component';
-import { AddressComponent } from './register/address/address.component';
-import { ResultComponent } from './register/result/result.component';
-import { NavbarComponent } from './navbar/navbar.component';
+
 import { FormDataService } from './data/formData.service';
 import { WorkflowService } from './workflow/workflow.service';
 import { WorkflowGuard } from './workflow/workflow-guard.service';
@@ -53,15 +48,12 @@ import { VendingMachineComponent } from './vending-machine/vending-machine.compo
 
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectService } from './services/project.service';
-import { RegisterStepperComponent } from './register-stepper/register-stepper.component';
-import { PersonalFormComponent } from './register-stepper/personal-form/personal-form.component';
-import { WorkFormComponent } from './register-stepper/work-form/work-form.component';
-import { WfstepDirective } from './directives/wfstep.directive';
-import { AddressFormComponent } from './register-stepper/address-form/address-form.component';
-import { ResultFormComponent } from './register-stepper/result-form/result-form.component';
-import { RegisterWorkflowComponent } from './register-workflow/register-workflow.component';
+
+
 
 import { OnboardingModule } from './onboarding/onboarding.module';
+import { DynamicwfModule } from './dynamicwf/dynamicwf.module';
+import { RegisterModule } from './register/register.module';
 
 @NgModule({
   declarations: [
@@ -83,21 +75,9 @@ import { OnboardingModule } from './onboarding/onboarding.module';
     CapitalizePipe,
     CompanyEditComponent,
     AccountComponent,
-    MultiStepComponent,
-    PersonalComponent,
-    WorkComponent,
-    AddressComponent,
-    ResultComponent,
-    NavbarComponent,
+
     VendingMachineComponent,
-    ProjectsComponent,
-    RegisterStepperComponent,
-    PersonalFormComponent,
-    WorkFormComponent,
-    WfstepDirective,
-    AddressFormComponent,
-    ResultFormComponent,
-    RegisterWorkflowComponent
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -105,9 +85,12 @@ import { OnboardingModule } from './onboarding/onboarding.module';
     ReactiveFormsModule,
     HttpClientModule,
     OnboardingModule,
+    DynamicwfModule,
+    RegisterModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    
   ],
   providers: [
     JsRouter,
@@ -122,11 +105,7 @@ import { OnboardingModule } from './onboarding/onboarding.module';
     ],
   bootstrap: [AppComponent],
   entryComponents: [
-    AccountComponent, 
-    PersonalFormComponent, 
-    WorkFormComponent, 
-    AddressFormComponent,
-    ResultFormComponent
+    AccountComponent
   ]
 })
 export class AppModule { }

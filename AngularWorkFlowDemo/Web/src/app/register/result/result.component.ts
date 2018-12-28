@@ -23,6 +23,7 @@ export class ResultComponent implements OnInit {
     this.title = step.title;
 
     this.formData = this.formDataService.getFormData();
+    this.formDataService.setStepData(STEPS.result, true);
     this.isFormValid = this.formDataService.isFormValid();
   }
 
