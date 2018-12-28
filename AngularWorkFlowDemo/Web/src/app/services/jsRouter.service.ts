@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class JsRouter {
   private hostUrl: string;
 

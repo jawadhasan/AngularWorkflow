@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FrameworkConfigService } from '../services/framework-config.service';
-import { UserService } from '../services/user.service';
+import { FrameworkConfigService } from '../../services/framework-config.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({

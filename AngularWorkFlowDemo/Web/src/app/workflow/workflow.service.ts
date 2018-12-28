@@ -3,7 +3,9 @@ import { IWorkflow, IWorkflowStep } from './workflow.model';
 
 ///service responsible for controlling the wizard workflow
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class WorkflowService {
 
     currentWorkflowStep: IWorkflowStep;

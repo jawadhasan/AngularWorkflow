@@ -3,7 +3,9 @@ import {FormData, Personal, Address} from './formData.model'
 import { WorkflowService }           from '../workflow/workflow.service';
 import { STEPS, IWorkflowStep }                     from '../workflow/workflow.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class FormDataService{
     @Output() stepCompleted = new EventEmitter<string>();
     @Output() stepAnimationDone = new EventEmitter<any>();  

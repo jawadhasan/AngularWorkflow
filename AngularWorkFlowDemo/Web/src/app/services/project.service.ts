@@ -8,8 +8,9 @@ import { Project } from '../../ProjectsModel/project';
 import { Constants } from '../constants';
 
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProjectService {
 
   constructor(private httpClient: HttpClient) { }

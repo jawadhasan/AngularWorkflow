@@ -18,7 +18,9 @@ export interface ICompany {
   isActive: boolean;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CompanyService {
   private actionUrl: string;
 
