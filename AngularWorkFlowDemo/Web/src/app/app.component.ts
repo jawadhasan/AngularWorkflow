@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FrameworkConfigSettings } from './services/framework-config.service';
-import { FrameworkConfigService } from './services/framework-config.service';
+import { FrameworkConfigSettings } from '../fw/services/framework-config.service';
+import { FrameworkConfigService } from '../fw/services/framework-config.service';
 import { WorkflowService } from './workflow/workflow.service';
 import { RegisterUserWorkFlow, SimpleWorkFlow } from './workflow/workflow.model';
 

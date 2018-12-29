@@ -20,13 +20,15 @@ import { OnboardingModule } from './onboarding/onboarding.module';
 import { DynamicwfModule } from './dynamicwf/dynamicwf.module';
 import { RegisterModule } from './register/register.module';
 import { SharedModule } from './shared/shared.module';
-import { LayoutModule } from './layout/layout.module';
+
+import { FwModule } from '../fw/fw.module';
+import { UserApi } from '../fw/users/user-api';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    DashboardComponent, 
+    DashboardComponent,
     VendingMachineComponent,
   ],
   imports: [
@@ -36,19 +38,21 @@ import { LayoutModule } from './layout/layout.module';
     ReactiveFormsModule,
     HttpClientModule,
 
+    FwModule,
+
     CompanyModule,
     AccountModule,
     ProjectModule,
     OnboardingModule,
     DynamicwfModule,
     RegisterModule,
-    LayoutModule,
     RouterModule.forRoot(appRoutes),
-    
-    
+
+
   ],
   providers: [
     UserService,
+    { provide: UserApi, useExisting: UserService },
     FormBuilder
   ],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-status-bar',
+  selector: 'fw-status-bar',
   templateUrl: './status-bar.component.html',
   styleUrls: ['./status-bar.component.css']
 })

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { FrameworkConfigService } from '../../services/framework-config.service';
-import { UserService } from '../../services/user.service';
+import { FrameworkConfigService } from '../services/framework-config.service';
+import { UserApi } from '../users/user-api';
 
 
 @Component({
@@ -11,7 +10,7 @@ import { UserService } from '../../services/user.service';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor(private userApi: UserService,
+  constructor(private userApi: UserApi,
     private frameworkConfigService: FrameworkConfigService) { }
 
   ngOnInit() {

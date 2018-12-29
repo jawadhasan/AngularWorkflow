@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Observable, empty, of, from, observable, throwError  } from 'rxjs';
-import { UserApi } from './user-api';
 import { delay, flatMap } from 'rxjs/operators';
+import { UserApi } from '../../fw/users/user-api';
 
 @Injectable()
 export class UserService implements UserApi {

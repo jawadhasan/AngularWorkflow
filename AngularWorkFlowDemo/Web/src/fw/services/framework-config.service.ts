@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 export interface IconFiles {
   imageFile: string,
   alt: string,
