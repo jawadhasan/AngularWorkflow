@@ -13,7 +13,7 @@ export class JsRouter {
     private route: ActivatedRoute,
     private location: Location) {
 // this.hostUrl = window.location.origin;
-    this.hostUrl = 'http://localhost:5000';
+    this.hostUrl = 'http://localhost:30504';
   }
 
   getFullPath(actionUrl: string): string {

@@ -60,7 +60,7 @@ namespace Web
 
             app.UseMvc();
 
-            // dbseeder.SeedAsync(app.ApplicationServices).Wait();
+             dbseeder.SeedAsync(app.ApplicationServices).Wait();
 
         }
     }

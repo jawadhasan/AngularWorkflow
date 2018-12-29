@@ -39,16 +39,13 @@ import { UserApi } from '../fw/users/user-api';
     HttpClientModule,
 
     FwModule,
-
     CompanyModule,
     AccountModule,
     ProjectModule,
     OnboardingModule,
     DynamicwfModule,
     RegisterModule,
-    RouterModule.forRoot(appRoutes),
-
-
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     UserService,
